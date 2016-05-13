@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EMS.Data.Repository", "EMS.Infrastructure\EMS.Data.Repository.csproj", "{5C62E78A-FDA3-4C85-B633-8F6DE541624E}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Presenter", "1 - Presenter", "{BB291753-1CC5-4DC8-969F-2B9A0523628A}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Presentation", "1 - Presentation", "{BB291753-1CC5-4DC8-969F-2B9A0523628A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - App", "2 - App", "{29AA7710-C343-448D-AE49-3A682FCE3E4D}"
 EndProject
