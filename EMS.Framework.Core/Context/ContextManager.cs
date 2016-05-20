@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EMS.Framework.Common.Interface
+namespace EMS.Framework.Core.Context
 {
-    interface IBaseAppService
+    public static class ContextManager
     {
+        public static ContextVO Context { get; set; }
     }
 }

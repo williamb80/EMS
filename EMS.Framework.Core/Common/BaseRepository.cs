@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EMS.Framework.Common
+namespace EMS.Framework.Core.Common
 {
     public class BaseRepository<TEntity> : IDisposable where TEntity : BaseEntity, new()
     {

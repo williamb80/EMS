@@ -54,7 +54,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Common\BaseAppService.cs" />
+    <Compile Include="Common\BaseEntity.cs" />
+    <Compile Include="Common\BaseRepository.cs" />
+    <Compile Include="Common\BaseService.cs" />
+    <Compile Include="Common\Interface\IBaseAppService.cs" />
+    <Compile Include="Common\Interface\IBaseRepository.cs" />
+    <Compile Include="Context\Configuration\BaseConfiguration.cs" />
+    <Compile Include="Context\ContextManager.cs" />
+    <Compile Include="Context\ValueObject\ContextVO.cs" />
     <Compile Include="Context\DBContext.cs" />
+    <Compile Include="Extension\ContextExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -65,6 +75,9 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

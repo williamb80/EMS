@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EMS.Framework.Common.Interface
+namespace EMS.Framework.Core.Common
 {
-    interface IBaseAppService
+    public class BaseAppService
     {
     }
 }

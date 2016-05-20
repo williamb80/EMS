@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EMS.Framework.Common.Interface
+namespace EMS.Framework.Core.Common
 {
-    interface IBaseAppService
+    public abstract class BaseEntity
     {
+        public abstract Int32 Id { get; set; }
     }
 }

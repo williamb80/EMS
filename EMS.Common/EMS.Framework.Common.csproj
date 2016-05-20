@@ -50,8 +50,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseAppService.cs" />
+    <Compile Include="BaseEntity.cs" />
     <Compile Include="BaseRepository.cs" />
     <Compile Include="BaseService.cs" />
+    <Compile Include="Extension\ContextExtension.cs" />
     <Compile Include="Interface\IBaseAppService.cs" />
     <Compile Include="Interface\IBaseRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

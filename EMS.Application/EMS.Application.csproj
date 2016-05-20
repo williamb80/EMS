@@ -40,11 +40,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\UserApplication.cs" />
+    <Compile Include="Interface\IUserApplication.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Common\" />
-    <Folder Include="Interface\" />
+    <ProjectReference Include="..\EMS.Framework.Core\EMS.Framework.Core.csproj">
+      <Project>{94df4922-1f4b-48ab-ac4e-4c6d4ff78752}</Project>
+      <Name>EMS.Framework.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
