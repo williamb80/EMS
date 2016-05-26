@@ -1,4 +1,6 @@
-﻿using System;
+﻿using EMS.Framework.Core.DependencyInjection;
+using EMS.Infrastructure.Mapping.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,6 +18,8 @@ namespace EMS.Mvc
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            
+            ContainerSetup.Configure();
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using EMS.Framework.Core.Common;
 using EMS.Framework.Core.Context;
-using EMS.Framework.Core.Context.Configuration;
+using EMS.Framework.Core.Context.Mapping;
+using EMS.Framework.Core.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -13,7 +14,7 @@ namespace EMS.Common
     public class DBContext : DbContext
     {
         public DBContext()
-            : base(ContextManager.Context.Environment)
+            : base(ContextManager.Context.ConnectionStringEnvironment)
         {
 
         }
@@ -24,8 +25,10 @@ namespace EMS.Common
 
             modelBuilder.Properties<String>().Configure(x => x.HasColumnType("varchar"));
             modelBuilder.Properties<String>().Configure(x => x.HasMaxLength(150));
-            modelBuilder.Configurations.Add(new BaseConfiguration<BaseEntity>());
 
+            var registerMapping = new BaseRegisterMapping();
+            registerMapping.Configuration = modelBuilder.Configurations;
+            registerMapping.Configure();
         }
     }
 }

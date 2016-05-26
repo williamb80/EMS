@@ -40,14 +40,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entity\Church.cs" />
     <Compile Include="Entity\User.cs" />
+    <Compile Include="Interface\IChurchRepository.cs" />
     <Compile Include="Interface\IUserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Common\" />
-    <Folder Include="Service\" />
+    <Folder Include="Common\Utils\" />
+    <Folder Include="Enum\" />
     <Folder Include="Validation\" />
+    <Folder Include="ValueObject\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EMS.Framework.Core\EMS.Framework.Core.csproj">

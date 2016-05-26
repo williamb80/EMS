@@ -69,9 +69,15 @@ namespace EMS.Framework.Core.Common
             SaveChanges();
         }
 
-        public virtual void Delete(TEntity entity)
+        public void Delete(TEntity entity)
         {
             _dbSet.Remove(entity);
+            SaveChanges();
+        }
+
+        public void Delete(int id)
+        {
+            _dbSet.Remove(GetById(id));
             SaveChanges();
         }
 

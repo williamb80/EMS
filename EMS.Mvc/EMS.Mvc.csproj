@@ -279,6 +279,28 @@
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EMS.Application\EMS.Application.csproj">
+      <Project>{c35b6333-e414-4865-b91e-c39a3f12bc0f}</Project>
+      <Name>EMS.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EMS.CrossCutting\EMS.CrossCutting.IoC.csproj">
+      <Project>{ecfdc465-ffa1-4ed6-b1d0-d9232863e379}</Project>
+      <Name>EMS.CrossCutting.IoC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EMS.Domain\EMS.Domain.csproj">
+      <Project>{d9f3123c-d630-430e-a9aa-3f9fe5ca6f86}</Project>
+      <Name>EMS.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EMS.Framework.Core\EMS.Framework.Core.csproj">
+      <Project>{94df4922-1f4b-48ab-ac4e-4c6d4ff78752}</Project>
+      <Name>EMS.Framework.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EMS.Infrastructure\EMS.Data.Repository.csproj">
+      <Project>{5c62e78a-fda3-4c85-b633-8f6de541624e}</Project>
+      <Name>EMS.Data.Repository</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

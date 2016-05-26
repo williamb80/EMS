@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EMS.Framework.Core
+namespace EMS.Framework.Security
 {
     public class Class1
     {

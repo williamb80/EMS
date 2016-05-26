@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 
 namespace EMS.Domain.Entity
 {
-    public class User : BaseEntity
+    public class Church : BaseEntity
     {
         public override int Id { get; set; }
         public string Name { get; set; }
-        public string Email { get; set; }
+        public string Initials { get; set; }
+        public string DateofBirth { get; set; }
     }
 }
