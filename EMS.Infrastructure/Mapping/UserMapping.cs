@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EMS.Infrastructure.Mapping
+namespace EMS.Data.Repository.Mapping
 {
     public class UserMapping : EntityTypeConfiguration<User>
     {

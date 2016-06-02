@@ -1,4 +1,8 @@
-﻿using System;
+﻿using AutoMapper;
+using EMS.Application.Interface;
+using EMS.Domain.Entity;
+using EMS.Framework.Core.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -22,6 +26,9 @@ namespace EMS.Mvc.Controllers
 
         public ActionResult Contact()
         {
+            var geralChurch = ContainerFactory.Get<IChurchAppService>().GetAll();
+            //var churchList = Mapper.Map<IList<Church>, IList<ChurchViewModel>>();
+
             ViewBag.Message = "Your contact page.";
 
             return View();

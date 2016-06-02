@@ -74,6 +74,11 @@
     <Compile Include="DependencyInjection\ContainerSetup.cs" />
     <Compile Include="DependencyInjection\BaseRegisterDependencyInjection.cs" />
     <Compile Include="Extension\ContextExtension.cs" />
+    <Compile Include="Migrations\201606020039249_001.cs" />
+    <Compile Include="Migrations\201606020039249_001.Designer.cs">
+      <DependentUpon>201606020039249_001.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -87,6 +92,11 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201606020039249_001.resx">
+      <DependentUpon>201606020039249_001.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EMS.Infrastructure.Repository
+namespace EMS.Data.Repository.Repository
 {
     public class UserRepository : BaseRepository<User>, IUserRepository
     {

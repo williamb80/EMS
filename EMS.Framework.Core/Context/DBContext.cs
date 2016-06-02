@@ -14,7 +14,8 @@ namespace EMS.Common
     public class DBContext : DbContext
     {
         public DBContext()
-            : base(ContextManager.Context.ConnectionStringEnvironment)
+            //: base(ContextManager.Context.ConnectionStringEnvironment)
+            : base("DBEMS")
         {
 
         }

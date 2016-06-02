@@ -1,9 +1,9 @@
 ﻿using EMS.Application;
 using EMS.Application.Interface;
+using EMS.Data.Repository.Repository;
 using EMS.Domain.Interface;
 using EMS.Framework.Core.DependencyInjection;
 using EMS.Infrastructure.Mapping.Common;
-using EMS.Infrastructure.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,8 +16,6 @@ namespace EMS.CrossCutting.DependencyInjection
     {
         public override void Configure()
         {
-            base.Configure();
-
             #region Application
 
             ContainerFactory.Bind<IUserAppService, UserAppService>();
