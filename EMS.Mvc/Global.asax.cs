@@ -1,5 +1,4 @@
 ﻿using EMS.Framework.Core.DependencyInjection;
-using EMS.Infrastructure.Mapping.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;

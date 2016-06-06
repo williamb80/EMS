@@ -12,6 +12,6 @@ namespace EMS.Domain.Entity
         public override int Id { get; set; }
         public string Name { get; set; }
         public string Initials { get; set; }
-        public string DateofBirth { get; set; }
+        public DateTime DateofBirth { get; set; }
     }
 }

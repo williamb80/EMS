@@ -1,14 +1,14 @@
-﻿using EMS.Common;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Core.Objects;
 using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Validation;
-using EMS.Framework.Common.Extension;
+using EMS.Framework.Core.Extension;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using EMS.Framework.Core.Context;
 
 namespace EMS.Framework.Core.Common
 {

@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("EMS.Common")]
+[assembly: AssemblyTitle("EMS.Resource")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("EMS.Common")]
+[assembly: AssemblyProduct("EMS.Resource")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("47636fe8-f9b6-4593-af0a-6adc5b3ebc07")]
+[assembly: Guid("0b8aa064-8318-4e2f-a5a9-938d3a91ced8")]
 
 // Version information for an assembly consists of the following four values:
 //

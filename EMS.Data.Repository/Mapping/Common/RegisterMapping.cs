@@ -1,20 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.Entity.ModelConfiguration.Configuration;
-using EMS.Framework.Core.Context.Mapping;
-using EMS.Data.Repository.Mapping;
+﻿using System.Data.Entity;
+using EMS.Framework.Core.Context;
+using EMS.Domain.Entity;
 
-namespace EMS.Infrastructure.Mapping.Common
+namespace EMS.Data.Repository.Mapping.Common
 {
-    public class RegisterMapping : BaseRegisterMapping
+    public class RegisterMapping : DBContext
     {
-        public override void Configure()
+        #region Register Entity
+
+        public DbSet<Church> Church { get; set; }
+        public DbSet<User> User { get; set; }
+
+        #endregion
+
+        #region Register Mapping
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            Configuration.Add(new UserMapping()); 
-            Configuration.Add(new ChurchMapping());
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Configurations.Add(new UserMapping());
+            modelBuilder.Configurations.Add(new ChurchMapping());
         }
+
+        #endregion
     }
 }

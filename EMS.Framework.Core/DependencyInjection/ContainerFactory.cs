@@ -1,11 +1,5 @@
-﻿using Microsoft.Practices.ServiceLocation;
-using Ninject;
+﻿using Ninject;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CommonServiceLocator.NinjectAdapter.Unofficial;
 using Ninject.Activation;
 
 namespace EMS.Framework.Core.DependencyInjection

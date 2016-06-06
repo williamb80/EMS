@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EMS.Framework.Common.Extension
+namespace EMS.Framework.Core.Extension
 {
     public static class ContextExtension
     {

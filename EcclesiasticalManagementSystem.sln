@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EMS.Data.Repository", "EMS.Infrastructure\EMS.Data.Repository.csproj", "{5C62E78A-FDA3-4C85-B633-8F6DE541624E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EMS.Data.Repository", "EMS.Data.Repository\EMS.Data.Repository.csproj", "{5C62E78A-FDA3-4C85-B633-8F6DE541624E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Presentation", "1 - Presentation", "{BB291753-1CC5-4DC8-969F-2B9A0523628A}"
 EndProject
@@ -23,9 +23,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Framework", "0 - Framew
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EMS.Framework.Core", "EMS.Framework.Core\EMS.Framework.Core.csproj", "{94DF4922-1F4B-48AB-AC4E-4C6D4FF78752}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EMS.CrossCutting.IoC", "EMS.CrossCutting\EMS.CrossCutting.IoC.csproj", "{ECFDC465-FFA1-4ED6-B1D0-D9232863E379}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EMS.CrossCutting.IoC", "EMS.CrossCutting.Ioc\EMS.CrossCutting.IoC.csproj", "{ECFDC465-FFA1-4ED6-B1D0-D9232863E379}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EMS.Framework.Security", "EMS.Framework.Security\EMS.Framework.Security.csproj", "{06C5E27F-83D3-47EE-9C92-C7E5B57A3904}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EMS.Resource", "EMS.Resource\EMS.Resource.csproj", "{0B8AA064-8318-4E2F-A5A9-938D3A91CED8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,6 +63,10 @@ Global
 		{06C5E27F-83D3-47EE-9C92-C7E5B57A3904}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06C5E27F-83D3-47EE-9C92-C7E5B57A3904}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06C5E27F-83D3-47EE-9C92-C7E5B57A3904}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B8AA064-8318-4E2F-A5A9-938D3A91CED8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B8AA064-8318-4E2F-A5A9-938D3A91CED8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B8AA064-8318-4E2F-A5A9-938D3A91CED8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B8AA064-8318-4E2F-A5A9-938D3A91CED8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -73,5 +79,6 @@ Global
 		{94DF4922-1F4B-48AB-AC4E-4C6D4FF78752} = {58412432-64EF-4C93-95C3-C12196EECB0E}
 		{ECFDC465-FFA1-4ED6-B1D0-D9232863E379} = {08BBA151-E1FF-4CD3-BBDC-EBC2A69A857E}
 		{06C5E27F-83D3-47EE-9C92-C7E5B57A3904} = {58412432-64EF-4C93-95C3-C12196EECB0E}
+		{0B8AA064-8318-4E2F-A5A9-938D3A91CED8} = {122615C5-FAB7-41AA-997A-D732917CADE7}
 	EndGlobalSection
 EndGlobal

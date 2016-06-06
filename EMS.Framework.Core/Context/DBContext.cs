@@ -1,18 +1,13 @@
-﻿using EMS.Framework.Core.Common;
-using EMS.Framework.Core.Context;
-using EMS.Framework.Core.Context.Mapping;
-using EMS.Framework.Core.DependencyInjection;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace EMS.Common
+namespace EMS.Framework.Core.Context
 {
     public class DBContext : DbContext
     {
+        /// <summary>
+        /// Foi adicionado na classe  EMS.Mvc.Startup a instancia do contexto.
+        /// </summary>
         public DBContext()
             //: base(ContextManager.Context.ConnectionStringEnvironment)
             : base("DBEMS")
@@ -26,10 +21,7 @@ namespace EMS.Common
 
             modelBuilder.Properties<String>().Configure(x => x.HasColumnType("varchar"));
             modelBuilder.Properties<String>().Configure(x => x.HasMaxLength(150));
-
-            var registerMapping = new BaseRegisterMapping();
-            registerMapping.Configuration = modelBuilder.Configurations;
-            registerMapping.Configure();
         }
+        
     }
 }
