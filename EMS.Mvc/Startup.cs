@@ -1,4 +1,5 @@
 ﻿using EMS.Framework.Core.Context;
+using EMS.Framework.Core.DependencyInjection;
 using Microsoft.Owin;
 using Owin;
 
@@ -11,14 +12,6 @@ namespace EMS.Mvc
         {
             ConfigureAuth(app);
 
-            ContextManager.Context = new ContextVO
-            {
-                ConnectionStringEnvironment = "DBEMS",
-                DataSource = "",
-                UserName = "ADMIN",
-                Name = "ADMIN",
-                Password = "ADMIN"
-            };
         }
     }
 }

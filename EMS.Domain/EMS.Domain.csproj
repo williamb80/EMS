@@ -49,22 +49,39 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Specification\ChurchNameIsRequiredSpecification.cs" />
+    <Compile Include="Specification\UserNameIsRequiredSpecification.cs" />
     <Compile Include="Entity\Church.cs" />
     <Compile Include="Entity\User.cs" />
-    <Compile Include="Interface\IChurchRepository.cs" />
-    <Compile Include="Interface\IUserRepository.cs" />
+    <Compile Include="Repository\IChurchRepository.cs" />
+    <Compile Include="Repository\IUserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\Model\ChurchService.cs" />
+    <Compile Include="Service\Model\IChurchService.cs" />
+    <Compile Include="Service\Model\IUserService.cs" />
+    <Compile Include="Service\Model\UserService.cs" />
+    <Compile Include="Validation\Model\ChurchValidation.cs" />
+    <Compile Include="Validation\Model\UserValidation.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Common\Specification\" />
     <Folder Include="Common\Utils\" />
     <Folder Include="Enum\" />
-    <Folder Include="Validation\" />
+    <Folder Include="Service\Common\" />
+    <Folder Include="Service\Configuration\" />
+    <Folder Include="Service\Process\" />
+    <Folder Include="Service\Report\" />
+    <Folder Include="Validation\Process\" />
     <Folder Include="ValueObject\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EMS.Framework.Core\EMS.Framework.Core.csproj">
       <Project>{94df4922-1f4b-48ab-ac4e-4c6d4ff78752}</Project>
       <Name>EMS.Framework.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EMS.Resource\EMS.Resource.csproj">
+      <Project>{0b8aa064-8318-4e2f-a5a9-938d3a91ced8}</Project>
+      <Name>EMS.Resource</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

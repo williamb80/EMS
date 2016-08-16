@@ -61,29 +61,41 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Common\BaseAppService.cs" />
+    <Compile Include="Common\App\BaseEntityAppService.cs" />
+    <Compile Include="Common\App\BaseApplication.cs" />
     <Compile Include="Common\BaseEntity.cs" />
-    <Compile Include="Common\BaseRepository.cs" />
-    <Compile Include="Common\Interface\IBaseAppService.cs" />
-    <Compile Include="Common\Interface\IBaseRepository.cs" />
+    <Compile Include="Common\Repository\BaseRepository.cs" />
+    <Compile Include="Common\Enum\InternalException.cs" />
+    <Compile Include="Common\App\Interface\IBaseAppService.cs" />
+    <Compile Include="Common\Repository\Interface\IBaseRepository.cs" />
+    <Compile Include="Common\Service\BaseService.cs" />
+    <Compile Include="Common\Specification\Interface\ISpecification.cs" />
+    <Compile Include="Common\Validation\Interface\IValidation.cs" />
+    <Compile Include="Common\Validation\Interface\IValidationRule.cs" />
+    <Compile Include="Common\Validation\Validation.cs" />
+    <Compile Include="Common\Validation\ValidationRule.cs" />
     <Compile Include="Context\ContextManager.cs" />
     <Compile Include="Context\ValueObject\ContextVO.cs" />
     <Compile Include="Context\DBContext.cs" />
     <Compile Include="DependencyInjection\ContainerFactory.cs" />
     <Compile Include="DependencyInjection\ContainerSetup.cs" />
-    <Compile Include="DependencyInjection\BaseRegisterDependencyInjection.cs" />
+    <Compile Include="DependencyInjection\Interface\IMappings.cs" />
     <Compile Include="Extension\ContextExtension.cs" />
+    <Compile Include="Extension\EnumExtension.cs" />
     <Compile Include="Migrations\201606020039249_001.cs" />
     <Compile Include="Migrations\201606020039249_001.Designer.cs">
       <DependentUpon>201606020039249_001.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Common\Service\BaseEntityService.cs" />
+    <Compile Include="Common\Service\Interface\IBaseEntityService.cs" />
+    <Compile Include="Common\Validation\Interface\ISelfValidation.cs" />
+    <Compile Include="Common\Validation\ValidationError.cs" />
+    <Compile Include="Common\Validation\ValidationResult.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
-    <Folder Include="Interface\" />
-    <Folder Include="Notification\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -96,6 +108,12 @@
     <EmbeddedResource Include="Migrations\201606020039249_001.resx">
       <DependentUpon>201606020039249_001.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EMS.Framework.Resource\EMS.Framework.Resource.csproj">
+      <Project>{9727183c-8177-41b3-b9af-70cd8b4dd0f8}</Project>
+      <Name>EMS.Framework.Resource</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

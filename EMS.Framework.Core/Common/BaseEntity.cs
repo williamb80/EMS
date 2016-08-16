@@ -8,6 +8,6 @@ namespace EMS.Framework.Core.Common
 {
     public abstract class BaseEntity
     {
-        public abstract Int32 Id { get; set; }
+        public abstract Int64 Id { get; set; }
     }
 }

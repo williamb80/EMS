@@ -26,7 +26,7 @@ namespace EMS.Mvc.Controllers
 
         public ActionResult Contact()
         {
-            var geralChurch = ContainerFactory.Get<IChurchAppService>().GetAll();
+            //var geralChurch = ContainerFactory.Get<IChurchAppService>().GetAll();
             //var churchList = Mapper.Map<IList<Church>, IList<ChurchViewModel>>();
 
             ViewBag.Message = "Your contact page.";

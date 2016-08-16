@@ -1,5 +1,5 @@
 ﻿using EMS.Domain.Entity;
-using EMS.Framework.Core.Common.Interface;
+using EMS.Framework.Core.Common.App.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;

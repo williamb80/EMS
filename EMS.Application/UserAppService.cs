@@ -1,35 +1,39 @@
 ﻿using EMS.Application.Interface;
 using EMS.Domain.Entity;
-using EMS.Domain.Interface;
-using EMS.Framework.Core.Common;
+using EMS.Domain.Service.Model;
+using EMS.Framework.Core.Common.App;
+using EMS.Framework.Core.Common.Validation;
 using EMS.Framework.Core.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Transactions;
 
 namespace EMS.Application
 {
-    public class UserAppService : BaseAppService<User, IUserRepository>, IUserAppService
+    public class UserAppService : BaseEntityAppService<User, IUserService>, IUserAppService
     {
-        public override void Save(User entity)
+        public override ValidationResult Save(User entity)
         {
             using (var ts = new TransactionScope())
             {
-                ContainerFactory.Get<IUserRepository>().SaveOrUpdate(entity);
-                ts.Complete();
+                ValidationResult.Add(ContainerFactory.Get<IUserService>().Save(entity));
+
+                if (ValidationResult.IsValid)
+                    ts.Complete();
             }
+
+            return ValidationResult;
         }
 
-        public override void Delete(User entity)
+        public override ValidationResult Delete(User entity)
         {
             using (var ts = new TransactionScope())
             {
-                ContainerFactory.Get<IUserRepository>().Delete(entity);
-                ts.Complete();
+                ValidationResult.Add(ContainerFactory.Get<IUserService>().Delete(entity));
+
+                if (ValidationResult.IsValid)
+                    ts.Complete();
             }
+
+            return ValidationResult;
         }
     }
 }

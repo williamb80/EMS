@@ -2,17 +2,17 @@
 
 namespace EMS.Framework.Core.DependencyInjection
 {
-    public class ContainerSetup
+    public abstract class ContainerSetup
     {
         /// <summary>
         /// Declarações
         /// </summary>
-        private static Boolean configured;
+        private Boolean configured;
 
         /// <summary>
         /// Verifica necessidade de reconfiguração
         /// </summary>
-        public static void Reconfigure()
+        public void Reconfigure()
         {
             configured = false;
             Configure();
@@ -21,7 +21,7 @@ namespace EMS.Framework.Core.DependencyInjection
         /// <summary>
         /// Configura o container
         /// </summary>
-        public static void Configure()
+        public void Configure()
         {
             if (!configured)
             {
@@ -31,11 +31,13 @@ namespace EMS.Framework.Core.DependencyInjection
 
                 #region FullBind
 
-                new BaseRegisterDependencyInjection().Configure();
-
+               ConfigureBinds();
+                    
                 #endregion
             }
         }
+
+        public abstract void ConfigureBinds();
 
     }
 }

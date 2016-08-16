@@ -1,16 +1,26 @@
-﻿using EMS.Framework.Core.Common;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using EMS.Domain.Validation.Model;
+using EMS.Framework.Core.Common;
+using EMS.Framework.Core.Common.Validation;
 
 namespace EMS.Domain.Entity
 {
-    public class User : BaseEntity
+    public class User : BaseEntity, ISelfValidation
     {
-        public override int Id { get; set; }
+        public override long Id { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
+
+        public ValidationResult ValidationResult
+        {
+            get; private set;
+        }
+
+        public bool IsValid()
+        {
+            var result = new UserValidation();
+            ValidationResult = result.Valid(this);
+
+            return ValidationResult.IsValid;
+        }
     }
 }

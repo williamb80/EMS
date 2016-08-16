@@ -5,19 +5,19 @@ namespace EMS.Data.Repository.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<EMS.Data.Repository.Mapping.Common.RegisterMapping>
+    internal sealed class Configuration : DbMigrationsConfiguration<EMS.Data.Repository.Mapping.Common.Mappings>
     {
         /// <summary>
-        /// Use only the command Update-Database -Verbose
+        /// By Anderson: Use only the command Update-Database -Verbose to run the project in your pc.
         /// </summary>
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(EMS.Data.Repository.Mapping.Common.RegisterMapping context)
+        protected override void Seed(EMS.Data.Repository.Mapping.Common.Mappings context)
         {
-            //  This method will be called after migrating to the latest version.
+            // This method will be called after migrating to the latest version.
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data. E.g.

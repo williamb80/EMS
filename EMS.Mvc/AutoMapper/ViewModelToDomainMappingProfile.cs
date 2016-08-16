@@ -1,9 +1,6 @@
 ﻿using AutoMapper;
 using EMS.Domain.Entity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using EMS.Mvc.ViewModels.Model;
 
 namespace EMS.Mvc.AutoMapper
 {
@@ -12,7 +9,7 @@ namespace EMS.Mvc.AutoMapper
         protected override void Configure()
         {
             //Mapper.CreateMap<User, UserViewModel>();
-            //Mapper.CreateMap<Church, ChurchViewModel>();
+           Mapper.CreateMap<Church, ChurchVM>();
         }
     }
 }

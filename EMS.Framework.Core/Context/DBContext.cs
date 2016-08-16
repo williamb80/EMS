@@ -6,15 +6,18 @@ namespace EMS.Framework.Core.Context
     public class DBContext : DbContext
     {
         /// <summary>
-        /// Foi adicionado na classe  EMS.Mvc.Startup a instancia do contexto.
+        /// Foi adicionado na classe  EMS.Mvc.Global.asax a instancia do contexto.
         /// </summary>
-        public DBContext()
-            //: base(ContextManager.Context.ConnectionStringEnvironment)
-            : base("DBEMS")
+        public DBContext(string connectionString)
+        //: base(ContextManager.Context.ConnectionStringEnvironment ?? "DBEMS")
+        : base(connectionString)
         {
-
         }
 
+        public DBContext()
+        : base("DBEMS")
+        {
+        }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -22,6 +25,6 @@ namespace EMS.Framework.Core.Context
             modelBuilder.Properties<String>().Configure(x => x.HasColumnType("varchar"));
             modelBuilder.Properties<String>().Configure(x => x.HasMaxLength(150));
         }
-        
+
     }
 }

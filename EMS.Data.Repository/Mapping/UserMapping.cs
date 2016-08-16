@@ -11,6 +11,8 @@ namespace EMS.Data.Repository.Mapping
             Property(u => u.Name).HasColumnName("USE_NAME").HasMaxLength(150).IsRequired();
             Property(u => u.Email).HasColumnName("USE_EMAIL").HasMaxLength(150).IsRequired();
             Property(u => u.Id).HasColumnName("USE_ID").IsRequired();
+
+            Ignore(u => u.ValidationResult);
         }
     }
 }
