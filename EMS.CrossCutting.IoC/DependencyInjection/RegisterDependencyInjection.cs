@@ -1,9 +1,11 @@
-﻿using EMS.Application;
-using EMS.Application.Interface;
+﻿using EMS.Application.Model;
+using EMS.Application.Model.Interface;
+using EMS.Application.Registration;
+using EMS.Application.Registration.Interface;
 using EMS.Data.Repository.Mapping.Common;
 using EMS.Data.Repository.Repository;
 using EMS.Domain.Repository;
-using EMS.Domain.Service.Model;
+using EMS.Domain.Service.Registration;
 using EMS.Framework.Core.DependencyInjection;
 using EMS.Framework.Core.DependencyInjection.Interface;
 
@@ -19,7 +21,6 @@ namespace EMS.CrossCutting.DependencyInjection
             ContainerFactory.Bind<IChurchAppService, ChurchAppService>();
 
             #endregion
-
 
             #region Service
             ContainerFactory.Bind<IUserService, UserService>();

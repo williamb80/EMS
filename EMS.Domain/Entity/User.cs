@@ -1,4 +1,4 @@
-﻿using EMS.Domain.Validation.Model;
+﻿using EMS.Domain.Validation.Registration;
 using EMS.Framework.Core.Common;
 using EMS.Framework.Core.Common.Validation;
 

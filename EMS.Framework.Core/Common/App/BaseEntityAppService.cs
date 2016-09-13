@@ -29,6 +29,10 @@ namespace EMS.Framework.Core.Common.App
         protected ValidationResult ValidationResult { get; private set; }
         #endregion
 
+        public BaseEntityAppService()
+        {
+            ValidationResult = new ValidationResult();
+        }
 
         /// <summary>
         /// Use this method inside "using" whith Transaction Scope

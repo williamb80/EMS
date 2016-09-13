@@ -7,6 +7,25 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
+
+    <script type="text/javascript">
+        function ConfigureButtonsToOpenModal(pButton, pathLoad, modalId) {
+            var loadingString = "@Html.Raw(EMS.Framework.Resource.ButtonsResource.Loading)";
+            var $btn = pButton.button(loadingString)
+
+            if (pButton != null && pButton != "") {
+                $btn = $btn.button(loadingString)
+            }
+
+            if (pathLoad != null && pathLoad != "" && modalId != "" && modalId != null)
+                $("#popupContent").load(pathLoad + $btn.data("value"), function () {
+                    $('#' + modalId).modal("show");
+                });
+
+            $btn.button('reset')
+
+        }
+    </script>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -40,5 +59,6 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
 </body>
 </html>

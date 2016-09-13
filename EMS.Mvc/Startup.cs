@@ -1,5 +1,8 @@
-﻿using EMS.Framework.Core.Context;
+﻿
+using EMS.CrossCutting.DependencyInjection;
+using EMS.Framework.Core.Context;
 using EMS.Framework.Core.DependencyInjection;
+using EMS.Mvc.AutoMapper;
 using Microsoft.Owin;
 using Owin;
 
@@ -12,6 +15,19 @@ namespace EMS.Mvc
         {
             ConfigureAuth(app);
 
+            AutoMapperConfig.RegisterMappings();
+
+            ContainerSetup containerSetup = new RegisterDependencyInjection();
+            containerSetup.Configure();
+
+            ContextManager.Context = new ContextVO
+            {
+                ConnectionString = "DBEMS",
+                DataSource = "",
+                UserName = "ADMIN",
+                Name = "Administrator",
+                Password = "ADMIN"
+            };
         }
     }
 }

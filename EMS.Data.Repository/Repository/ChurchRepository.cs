@@ -1,6 +1,5 @@
 ﻿using EMS.Domain.Entity;
 using EMS.Domain.Repository;
-using EMS.Framework.Core.Common;
 using EMS.Framework.Core.Common.Repository;
 using System.Linq;
 

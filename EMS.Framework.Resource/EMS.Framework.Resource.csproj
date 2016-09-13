@@ -45,6 +45,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ButtonsResource.resx</DependentUpon>
     </Compile>
+    <Compile Include="PlaceHolderResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PlaceHolderResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ValidationResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ValidationResource.resx</DependentUpon>
+    </Compile>
     <Compile Include="EnumExceptionResource.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -56,6 +66,14 @@
     <EmbeddedResource Include="ButtonsResource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ButtonsResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlaceHolderResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>PlaceHolderResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ValidationResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ValidationResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="EnumExceptionResource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

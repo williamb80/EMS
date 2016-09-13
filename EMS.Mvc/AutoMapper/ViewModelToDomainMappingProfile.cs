@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using EMS.Domain.Entity;
-using EMS.Mvc.ViewModels.Model;
+using EMS.Mvc.ViewModels.Registration;
 
 namespace EMS.Mvc.AutoMapper
 {
@@ -9,7 +9,10 @@ namespace EMS.Mvc.AutoMapper
         protected override void Configure()
         {
             //Mapper.CreateMap<User, UserViewModel>();
-           Mapper.CreateMap<Church, ChurchVM>();
+            Mapper.CreateMap<Church, ChurchViewModel>();
+            Mapper.CreateMap<Address, AddressViewModel>();
+            Mapper.CreateMap<Branch, BranchViewModel>();
+            Mapper.CreateMap<Representative, RepresentativeViewModel>();
         }
     }
 }

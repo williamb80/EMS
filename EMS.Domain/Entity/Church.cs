@@ -1,11 +1,8 @@
-﻿using EMS.Domain.Validation.Model;
+﻿using EMS.Domain.Validation.Registration;
 using EMS.Framework.Core.Common;
 using EMS.Framework.Core.Common.Validation;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EMS.Domain.Entity
 {
@@ -15,8 +12,14 @@ namespace EMS.Domain.Entity
         public string Name { get; set; }
         public string Initials { get; set; }
         public DateTime BirthDate { get; set; }
-        public string PhoneNumber { get; set; }
-        
+        public string FirstPhoneNumber { get; set; }
+        public string SecondPhoneNumber { get; set; }
+        public string CNPJ { get; set; }
+        public Address Address { get; set; }
+        public string Email { get; set; }
+        public virtual IEnumerable<Branch> Branches { get; set; }
+        public virtual IEnumerable<Representative> Representatives { get; set; }
+
 
         public ValidationResult ValidationResult
         {

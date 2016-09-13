@@ -12,6 +12,6 @@ namespace EMS.Framework.Core.Context
         public String DataSource { get; set; }
         public String UserName { get; set; }
         public String Password { get; set; }
-        public String ConnectionStringEnvironment { get; set; }
+        public String ConnectionString { get; set; }
     }
 }

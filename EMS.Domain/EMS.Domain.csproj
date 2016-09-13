@@ -49,28 +49,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Specification\ChurchNameIsRequiredSpecification.cs" />
-    <Compile Include="Specification\UserNameIsRequiredSpecification.cs" />
+    <Compile Include="Entity\Address.cs" />
+    <Compile Include="Entity\Branch.cs" />
+    <Compile Include="Entity\Employee.cs" />
+    <Compile Include="Entity\Representative.cs" />
+    <Compile Include="Repository\IRepresentativeRepository.cs" />
+    <Compile Include="Service\Registration\IRepresentativeService.cs" />
+    <Compile Include="Service\Registration\RepresentativeService.cs" />
+    <Compile Include="Specification\Church\ChurchNameIsRequiredSpecification.cs" />
+    <Compile Include="Specification\User\UserNameIsRequiredSpecification.cs" />
     <Compile Include="Entity\Church.cs" />
     <Compile Include="Entity\User.cs" />
     <Compile Include="Repository\IChurchRepository.cs" />
     <Compile Include="Repository\IUserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service\Model\ChurchService.cs" />
-    <Compile Include="Service\Model\IChurchService.cs" />
-    <Compile Include="Service\Model\IUserService.cs" />
-    <Compile Include="Service\Model\UserService.cs" />
-    <Compile Include="Validation\Model\ChurchValidation.cs" />
-    <Compile Include="Validation\Model\UserValidation.cs" />
+    <Compile Include="Service\Registration\ChurchService.cs" />
+    <Compile Include="Service\Registration\IChurchService.cs" />
+    <Compile Include="Service\Registration\IUserService.cs" />
+    <Compile Include="Service\Registration\UserService.cs" />
+    <Compile Include="Validation\Registration\ChurchValidation.cs" />
+    <Compile Include="Validation\Registration\UserValidation.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Common\Specification\" />
     <Folder Include="Common\Utils\" />
     <Folder Include="Enum\" />
-    <Folder Include="Service\Common\" />
-    <Folder Include="Service\Configuration\" />
     <Folder Include="Service\Process\" />
     <Folder Include="Service\Report\" />
+    <Folder Include="Service\Settings\" />
+    <Folder Include="Specification\Representative\" />
     <Folder Include="Validation\Process\" />
     <Folder Include="ValueObject\" />
   </ItemGroup>

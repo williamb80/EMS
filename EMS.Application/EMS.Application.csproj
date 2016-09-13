@@ -41,14 +41,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChurchAppService.cs" />
-    <Compile Include="Interface\IChurchAppService.cs" />
-    <Compile Include="UserAppService.cs" />
-    <Compile Include="Interface\IUserAppService.cs" />
+    <Compile Include="Registration\ChurchAppService.cs" />
+    <Compile Include="Registration\Interface\IChurchAppService.cs" />
+    <Compile Include="Registration\Interface\IRepresentativeAppService.cs" />
+    <Compile Include="Registration\RepresentativeAppService.cs" />
+    <Compile Include="Registration\UserAppService.cs" />
+    <Compile Include="Registration\Interface\IUserAppService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Common\Interface\" />
+    <Folder Include="Process\Interface\" />
+    <Folder Include="Report\Interface\" />
+    <Folder Include="Settings\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EMS.Domain\EMS.Domain.csproj">
