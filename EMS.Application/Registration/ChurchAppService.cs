@@ -1,6 +1,6 @@
 ﻿using EMS.Application.Model.Interface;
 using EMS.Domain.Entity;
-using EMS.Domain.Service.Registration;
+using EMS.Domain.Operation.Registration;
 using EMS.Framework.Core.Common.App;
 using EMS.Framework.Core.Common.Validation;
 using EMS.Framework.Core.DependencyInjection;

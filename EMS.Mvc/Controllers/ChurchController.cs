@@ -1,10 +1,12 @@
 ﻿using AutoMapper;
 using EMS.Application.Model.Interface;
+using EMS.Application.Registration.Interface;
 using EMS.Domain.Entity;
 using EMS.Framework.Core.Common.Validation;
 using EMS.Framework.Core.DependencyInjection;
 using EMS.Mvc.ViewModels.Registration;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 
@@ -30,10 +32,18 @@ namespace EMS.Mvc.Model.Controllers
             if (church == null)
                 return new HttpNotFoundResult();
 
-            if (newPage != null || newPage == true)
-                return View(church);
 
-            return PartialView(church);
+            if (church.Representatives != null && church.Representatives.Any())
+            {
+                ViewBag.Representatives = church.Representatives.Select(r => new { r.Id, r.Name });
+            }
+
+            if (Request.IsAjaxRequest())
+            {
+                return PartialView(church);
+            }
+
+            return View(church);            
         }
 
         //GET: Church/Detail/5        
@@ -47,10 +57,12 @@ namespace EMS.Mvc.Model.Controllers
             if (church == null)
                 return new HttpNotFoundResult();
 
-            if (newPage != null || newPage == true)
-                return View(church);
+            if (Request.IsAjaxRequest())
+            {
+                return PartialView(church);
+            }
 
-            return PartialView(church);
+            return View(church);
         }
 
         //GET: Church/Create  
@@ -85,6 +97,7 @@ namespace EMS.Mvc.Model.Controllers
             }
             return View(model);
         }
+
         //POST: Church/Edit
         [HttpPost]
         public ActionResult Edit(ChurchViewModel model)
@@ -110,7 +123,7 @@ namespace EMS.Mvc.Model.Controllers
             }
             return View(model);
         }
-        
+
 
         //GET: Church/Delete/5        
         public ViewResult Delete(long id)

@@ -64,6 +64,7 @@
     <Compile Include="Common\App\BaseEntityAppService.cs" />
     <Compile Include="Common\App\BaseApplication.cs" />
     <Compile Include="Common\BaseEntity.cs" />
+    <Compile Include="Common\Service\BaseExternalService.cs" />
     <Compile Include="Common\Repository\BaseRepository.cs" />
     <Compile Include="Common\Enum\InternalException.cs" />
     <Compile Include="Common\App\Interface\IBaseAppService.cs" />
@@ -72,7 +73,7 @@
     <Compile Include="Common\Specification\Interface\ISpecification.cs" />
     <Compile Include="Common\Validation\Interface\IValidation.cs" />
     <Compile Include="Common\Validation\Interface\IValidationRule.cs" />
-    <Compile Include="Common\Validation\Validation.cs" />
+    <Compile Include="Common\Validation\BaseValidationService.cs" />
     <Compile Include="Common\Validation\ValidationRule.cs" />
     <Compile Include="Context\ContextManager.cs" />
     <Compile Include="Context\ValueObject\ContextVO.cs" />

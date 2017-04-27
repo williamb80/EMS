@@ -41,11 +41,11 @@ namespace EMS.Framework.Core.Common.Validation
             return this;
         }
 
-        public ValidationResult Remove(ValidationError error)
-        {
-            if (_erros.Contains(error))
-                _erros.Remove(error);
-            return this;
-        }
+        //public ValidationResult Remove(ValidationError error)
+        //{
+        //    if (_erros.Contains(error))
+        //        _erros.Remove(error);
+        //    return this;
+        //}
     }
 }

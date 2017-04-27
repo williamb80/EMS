@@ -1,0 +1,44 @@
+﻿[
+  {
+    "id": "1",
+    "parentid": "0",
+    "sub": [
+      {
+        "id": "2",
+        "text": "Church",
+        "parentid": "1",
+        "url": "#"
+      },
+      {
+        "id": "3",
+        "text": "Representative",
+        "parentid": "1",
+        "url": "#"
+      }
+    ],
+    "text": "Sistema",
+    "url": ""
+  },
+
+  {
+    "id": "4",
+    "text": "Asp.Net Itens",
+    "parentid": "0",
+    "url": "",
+    "sub": [
+      {
+        "id": "5",
+        "text": "Home",
+        "parentid": "4",
+        "url": "#"
+
+      },
+      {
+        "id": "5",
+        "text": "Manage",
+        "parentid": "4",
+        "url": "#"
+      }
+    ]
+  }
+]

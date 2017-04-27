@@ -64,19 +64,25 @@
         <p>
             <h4>@Html.Raw(EMS.Resource.Registration.RepresentativeResource.Representative)</h4>
         </p>
-        <p>
-            <div class="form-group">
-                <div class="col-md-10">
-                    @*COLOCAR AUTO COMPLETE AQUI*@
-                    @* @Html.EditorFor(model => model.Representatives.FirstOrDefault().Name, new { htmlAttributes = new { @class = "form-control" } })*@
-                    <input id="RepresentativeName" class="form-control typeahead" placeholder="@Html.Raw(EMS.Resource.Registration.RepresentativeResource.RepresentativeName)" />
-                    @Html.ActionLink(EMS.Framework.Resource.ButtonsResource.Include, "")
-                </div>
-            </div>
-        </p>
+            @if (Model.Representatives != null)
+            {
+                <p>
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            @*COLOCAR AUTO COMPLETE AQUI*@
+                            @* @Html.EditorFor(model => model.Representatives.FirstOrDefault().Name, new { htmlAttributes = new { @class = "form-control" } })*@
+                            @*<input id="RepresentativeName" class="form-control typeahead" placeholder="@Html.Raw(EMS.Resource.Registration.RepresentativeResource.RepresentativeName)" />*@
 
-        @if (Model.Representatives != null)
-        {
+                            <select class="js-example-basic-single">
+                                @foreach (var item in ViewBag.Representatives)
+                                {
+                                    <option value="item.Id">item.Name</option>
+                                }
+                            </select>
+                            @Html.ActionLink(EMS.Framework.Resource.ButtonsResource.Include, "")
+                        </div>
+                    </div>
+                </p>
             <table class="table">
                 <tr>
                     <th>
@@ -105,57 +111,46 @@
                     </tr>
                 }
             </table>
-        }
+            }
 
 
 
-        <div class="modal-footer">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="@Html.Raw(EMS.Framework.Resource.ButtonsResource.Save)" class="btn btn-primary" />
-                @if (Model.Id != 0)
+            <div class="modal-footer">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="@Html.Raw(EMS.Framework.Resource.ButtonsResource.Save)" class="btn btn-primary" />
+                    @if (Model.Id != 0)
                 {
-                    @Html.ActionLink(EMS.Framework.Resource.ButtonsResource.Delete, "Delete", Model, new { @class = "btn btn-default" })
+                        @Html.ActionLink(EMS.Framework.Resource.ButtonsResource.Delete, "Delete", Model, new { @class = "btn btn-default" })
+                    }
+                    else
+                    {
+                        @Html.ActionLink(EMS.Framework.Resource.ButtonsResource.BackToList, "", new { @class = "btn btn-default" });
                 }
-                else
-                {
-                    @Html.ActionLink(EMS.Framework.Resource.ButtonsResource.BackToList, "", new { @class = "btn btn-default" });
-                }
+                </div>
             </div>
+
+
         </div>
 
+                @section Scripts {
+                    @*@Scripts.Render("~/bundles/jquery")
+                        @Scripts.Render("~/bundles/jqueryval")
+                        @Scripts.Render("~/bundles/maskedinput")
+                        @Scripts.Render("~/bundles/select2")*@
 
-    </div>
+                    <script>
+                        $(document).ready(function () {
 
-    @section Scripts {
-        @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/jqueryval")
-        @Scripts.Render("~/bundles/maskedinput")
+                            $("#FirstPhoneNumber").mask("(99) 9999-9999");
+                            $("#SecondPhoneNumber").mask("(99) 9999-9999");
+                            $("#BirthDate").mask("99/99/9999");
 
-        <script>
-            $(document).ready(function () {
+                            $('.btnDetail').on('click', function () { ConfigureButtonsToOpenModal($(this), "/Church/Detail/") });
+                            $('.btnEdit').on('click', function () { ConfigureButtonsToOpenModal($(this), "/Church/Edit/") });
 
-                $("#FirstPhoneNumber").mask("(99) 9999-9999");
-                $("#SecondPhoneNumber").mask("(99) 9999-9999");
-                $("#BirthDate").mask("99/99/9999");
+                            $(".js-example-basic-single").select2();
+                        })
 
-
-                $('.btnDetail').on('click', function () { ConfigureButtons($(this), "/Church/Detail/", 'Modal') });
-                $('.btnEdit').on('click', function () { ConfigureButtons($(this), "/Church/Edit/", 'Modal') });
-            })
-
-            var countries = new Bloodhound({
-                datumTokenizer: Bloodhound.tokenizers.whitespace,
-                queryTokenizer: Bloodhound.tokenizers.whitespace,
-                prefetch: '/Representative/GetAll'
-            });
-
-            // passing in `null` for the `options` arguments will result in the default
-            // options being used
-            $('.typeahead').typeahead(null, {
-                name: 'representatives',
-                source: representatives
-            });
-
-        </script>
-    }
+                    </script>
+                }
 }

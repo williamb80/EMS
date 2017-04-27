@@ -7,6 +7,7 @@ namespace EMS.Mvc.ViewModels.Registration
 {
     public class RepresentativeViewModel
     {
+
         [Key]
         public long Id { get; set; }
 
@@ -28,6 +29,9 @@ namespace EMS.Mvc.ViewModels.Registration
 
         //[Required(ErrorMessageResourceName = "PhoneNumberIsRequired", ErrorMessageResourceType = typeof(AddressResource))]
         [Display(Name = "Address", ResourceType = typeof(RepresentativeResource))]
-        public Address Address { get; set; }
+        public AddressViewModel AddressViewModel { get; set; }
+
+        [Display(Name = "Church", ResourceType = typeof(ChurchResource))]
+        public ChurchViewModel ChurchViewModel { get; set; }
     }
 }

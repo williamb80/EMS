@@ -1,4 +1,4 @@
-﻿using EMS.Domain.Validation.Registration;
+﻿using EMS.Domain.ValidationService.Registration;
 using EMS.Framework.Core.Common;
 using EMS.Framework.Core.Common.Validation;
 
@@ -17,7 +17,7 @@ namespace EMS.Domain.Entity
 
         public bool IsValid()
         {
-            var result = new UserValidation();
+            var result = new UserValidationService();
             ValidationResult = result.Valid(this);
 
             return ValidationResult.IsValid;

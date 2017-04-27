@@ -1,4 +1,4 @@
-﻿using EMS.Domain.Validation.Registration;
+﻿using EMS.Domain.ValidationService.Registration;
 using EMS.Framework.Core.Common;
 using EMS.Framework.Core.Common.Validation;
 using System;
@@ -28,7 +28,7 @@ namespace EMS.Domain.Entity
 
         public bool IsValid()
         {
-            var result = new ChurchValidation();
+            var result = new ChurchValidationService();
             ValidationResult = result.Valid(this);
 
             return ValidationResult.IsValid;

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using EMS.Domain.Entity;
 using EMS.Mvc.ViewModels.Registration;
+using System.Collections.Generic;
 
 namespace EMS.Mvc.AutoMapper
 {
@@ -13,6 +14,7 @@ namespace EMS.Mvc.AutoMapper
             Mapper.CreateMap<AddressViewModel, Address>();
             Mapper.CreateMap<BranchViewModel, Branch>();
             Mapper.CreateMap<RepresentativeViewModel, Representative>();
+            Mapper.CreateMap<IEnumerable<Representative>, IEnumerable<RepresentativeViewModel>>();
         }
     }
 }

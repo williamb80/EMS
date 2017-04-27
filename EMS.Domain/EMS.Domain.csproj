@@ -54,8 +54,9 @@
     <Compile Include="Entity\Employee.cs" />
     <Compile Include="Entity\Representative.cs" />
     <Compile Include="Repository\IRepresentativeRepository.cs" />
-    <Compile Include="Service\Registration\IRepresentativeService.cs" />
-    <Compile Include="Service\Registration\RepresentativeService.cs" />
+    <Compile Include="Operation\Registration\IRepresentativeService.cs" />
+    <Compile Include="Operation\Registration\RepresentativeService.cs" />
+    <Compile Include="Service\IPeople.cs" />
     <Compile Include="Specification\Church\ChurchNameIsRequiredSpecification.cs" />
     <Compile Include="Specification\User\UserNameIsRequiredSpecification.cs" />
     <Compile Include="Entity\Church.cs" />
@@ -63,22 +64,22 @@
     <Compile Include="Repository\IChurchRepository.cs" />
     <Compile Include="Repository\IUserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service\Registration\ChurchService.cs" />
-    <Compile Include="Service\Registration\IChurchService.cs" />
-    <Compile Include="Service\Registration\IUserService.cs" />
-    <Compile Include="Service\Registration\UserService.cs" />
-    <Compile Include="Validation\Registration\ChurchValidation.cs" />
-    <Compile Include="Validation\Registration\UserValidation.cs" />
+    <Compile Include="Operation\Registration\ChurchService.cs" />
+    <Compile Include="Operation\Registration\IChurchService.cs" />
+    <Compile Include="Operation\Registration\IUserService.cs" />
+    <Compile Include="Operation\Registration\UserService.cs" />
+    <Compile Include="ValidationService\Registration\ChurchValidationService.cs" />
+    <Compile Include="ValidationService\Registration\UserValidationService.cs" />
+    <Compile Include="ValueObject\PeopleVO.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Common\Utils\" />
     <Folder Include="Enum\" />
-    <Folder Include="Service\Process\" />
-    <Folder Include="Service\Report\" />
-    <Folder Include="Service\Settings\" />
+    <Folder Include="Operation\Process\" />
+    <Folder Include="Operation\Report\" />
+    <Folder Include="Operation\Settings\" />
     <Folder Include="Specification\Representative\" />
-    <Folder Include="Validation\Process\" />
-    <Folder Include="ValueObject\" />
+    <Folder Include="ValidationService\Process\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EMS.Framework.Core\EMS.Framework.Core.csproj">
