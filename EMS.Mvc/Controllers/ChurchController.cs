@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using EMS.Application.Model.Interface;
-using EMS.Application.Registration.Interface;
 using EMS.Domain.Entity;
 using EMS.Framework.Core.Common.Validation;
 using EMS.Framework.Core.DependencyInjection;
@@ -22,7 +21,7 @@ namespace EMS.Mvc.Model.Controllers
         }
 
         //GET: Church/Edit/5        
-        public ActionResult Edit(long? id, bool? newPage)
+        public ActionResult Edit(long? id)
         {
             if (id == decimal.Zero || id == null)
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -47,7 +46,7 @@ namespace EMS.Mvc.Model.Controllers
         }
 
         //GET: Church/Detail/5        
-        public ActionResult Detail(long? id, bool? newPage)
+        public ActionResult Detail(long? id)
         {
             if (id == decimal.Zero || id == null)
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

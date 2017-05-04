@@ -8,16 +8,12 @@ namespace EMS.Mvc
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.Add(new ScriptBundle("~/bundles/maskedinput").Include(
-                           "~/script/jquery.maskedinput.min.js",
-                           "~/script/jquery.maskedinput.js"));
-
-            bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-                        "~/scripts/jquery.validate*"));
-
             bundles.Add(new StyleBundle("~/content/smartadmin").IncludeDirectory("~/css", "*.min.css"));
 
             bundles.Add(new ScriptBundle("~/scripts/smartadmin").Include(
+                //"~/scripts/jquery-{version}.js",
+                //"~/scripts/jquery-{version}.min.js",
+                "~/libs/jquery-2.1.1.min.js",
                 "~/scripts/app.config.js",
                 "~/scripts/plugin/jquery-touch/jquery.ui.touch-punch.min.js",
                 "~/scripts/bootstrap/bootstrap.min.js",
@@ -31,7 +27,7 @@ namespace EMS.Mvc
                 "~/scripts/plugin/msie-fix/jquery.mb.browser.min.js",
                 "~/scripts/plugin/fastclick/fastclick.min.js",
                 "~/scripts/app.min.js",
-                "~/script/menu.js",
+                "~/scripts/menu.js",
                 "~/Menu/menuItens.json"));
 
             bundles.Add(new ScriptBundle("~/scripts/full-calendar").Include(

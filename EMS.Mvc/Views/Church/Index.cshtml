@@ -1,15 +1,15 @@
 ﻿@model IEnumerable<EMS.Mvc.ViewModels.Registration.ChurchViewModel>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = EMS.Resource.Registration.ChurchResource.Church;
 }
 
-<h1>@Html.Raw(EMS.Resource.Registration.ChurchResource.Church)</h1>
+<h3>@Html.Raw(EMS.Resource.Registration.ChurchResource.Church)</h3>
 
 <p>
     @Html.ActionLink(EMS.Framework.Resource.ButtonsResource.New, "Create")
 </p>
-<table class="table">
+<table class="table table-striped">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Name)
@@ -37,19 +37,21 @@
                 @Html.DisplayFor(modelItem => item.BirthDate)
             </td>
             <td>
-                <a href="#" id="btnDetail" data-value="@item.Id" class="btn btn-default btnDetail" data-loading-text="@Html.Raw(EMS.Framework.Resource.ButtonsResource.Loading)...">@Html.Raw(EMS.Framework.Resource.ButtonsResource.View)</a>
-                <a href="#" id="btnEdit" data-value="@item.Id" class="btn btn-default btnEdit" data-loading-text="@Html.Raw(EMS.Framework.Resource.ButtonsResource.Loading)...">@Html.Raw(EMS.Framework.Resource.ButtonsResource.Edit)</a>
+                <a href="#" id="btnDetail" data-value="@item.Id" class="btnDetail" data-loading-text="@Html.Raw(EMS.Framework.Resource.ButtonsResource.Loading)...">@Html.Raw(EMS.Framework.Resource.ButtonsResource.View)</a>
+                <a href="#" id="btnEdit" data-value="@item.Id" class="btnEdit" data-loading-text="@Html.Raw(EMS.Framework.Resource.ButtonsResource.Loading)...">@Html.Raw(EMS.Framework.Resource.ButtonsResource.Edit)</a>
             </td>
         </tr>
     }
 
 </table>
 
-<div class="modal fade" tabindex="-1" role="dialog" id="Modal">
+<div class="modal fade in" tabindex="-1" role="dialog" id="modalmain">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" title="@Html.Raw(EMS.Framework.Resource.ButtonsResource.Close)">
+                    <span aria-hidden="true">&times;</span>
+                </button>
                 <h4 class="modal-title">@Html.Raw(EMS.Resource.Registration.ChurchResource.Church)</h4>
             </div>
             <div class="modal-body">
@@ -58,60 +60,57 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <a href="#" data-dismiss="modal">@Html.Raw(EMS.Framework.Resource.ButtonsResource.Close)</a>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
+@Scripts.Render("~/scripts/smartadmin");
+<script type="text/javascript">
 
-@section scripts {
-    <script type="text/javascript">
+    $(document).ready(
 
-        $(document).ready(
+        $('.btnDetail').on('click', function () {
 
-            $('.btnDetail').on('click', function () {
+            ConfigureButtonsToOpenModal($(this), "/Church/Detail/")
 
-                ConfigureButtonsToOpenModal($(this), "/Church/Detail/")
+        })
 
-            })
+    );
 
-        );
+    $(document).ready(
 
-        $(document).ready(
+        $('.btnEdit').on('click', function () {
+            ConfigureButtonsToOpenModal($(this), "/Church/Edit/")
+        })
 
-            $('.btnEdit').on('click', function () {
-                ConfigureButtonsToOpenModal($(this), "/Church/Edit/")
-            })
+    );
 
-        );
+    //$(document).ready(function () {
+    //    $(".btnDetail").click(function () {
+    //        var id = $(this).data("value");
 
-        //$(document).ready(function () {
-        //    $(".btnDetail").click(function () {
-        //        var id = $(this).data("value");
+    //        var $btn = $(this).button('loading')
 
-        //        var $btn = $(this).button('loading')
+    //        $("#popupContent").load("/Church/Detail/" + id, function () {
+    //            $('#Modal').modal("show");
+    //        });
 
-        //        $("#popupContent").load("/Church/Detail/" + id, function () {
-        //            $('#Modal').modal("show");
-        //        });
+    //        $btn.button('reset')
 
-        //        $btn.button('reset')
+    //    });
+    //});
 
-        //    });
-        //});
+    //$(".btnEdit").click(function () {
+    //    var id = $(this).data("value");
 
-        //$(".btnEdit").click(function () {
-        //    var id = $(this).data("value");
-
-        //    $("#popupContent").load("/Church/Edit/" + id, function () {
-        //        $('#Modal').modal("show");
-        //    });
-        //});
-
+    //    $("#popupContent").load("/Church/Edit/" + id, function () {
+    //        $('#Modal').modal("show");
+    //    });
+    //});
 
 
 
-    </script>
 
-}
+</script>
+
