@@ -49,31 +49,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Mapping\ChurchMapping.cs" />
-    <Compile Include="Mapping\Common\Mappings.cs" />
-    <Compile Include="Mapping\RepresentativeMapping.cs" />
-    <Compile Include="Mapping\UserMapping.cs" />
-    <Compile Include="Migrations\201608122027371_002.cs" />
-    <Compile Include="Migrations\201608122027371_002.Designer.cs">
-      <DependentUpon>201608122027371_002.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201608122042119_001-3.cs" />
-    <Compile Include="Migrations\201608122042119_001-3.Designer.cs">
-      <DependentUpon>201608122042119_001-3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201608122047469_001-4.cs" />
-    <Compile Include="Migrations\201608122047469_001-4.Designer.cs">
-      <DependentUpon>201608122047469_001-4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201608212101375_001-5.cs" />
-    <Compile Include="Migrations\201608212101375_001-5.Designer.cs">
-      <DependentUpon>201608212101375_001-5.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201608212210120_001-6.cs" />
-    <Compile Include="Migrations\201608212210120_001-6.Designer.cs">
-      <DependentUpon>201608212210120_001-6.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\ChurchRepository.cs" />
     <Compile Include="Repository\RepresentativeRepository.cs" />
@@ -92,23 +67,6 @@
       <Project>{94df4922-1f4b-48ab-ac4e-4c6d4ff78752}</Project>
       <Name>EMS.Framework.Core</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201608122027371_002.resx">
-      <DependentUpon>201608122027371_002.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201608122042119_001-3.resx">
-      <DependentUpon>201608122042119_001-3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201608122047469_001-4.resx">
-      <DependentUpon>201608122047469_001-4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201608212101375_001-5.resx">
-      <DependentUpon>201608212101375_001-5.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201608212210120_001-6.resx">
-      <DependentUpon>201608212210120_001-6.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

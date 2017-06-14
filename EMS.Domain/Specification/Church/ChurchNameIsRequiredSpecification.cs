@@ -1,4 +1,4 @@
-﻿using EMS.Framework.Core.Common.Specification.Interface;
+﻿using EMS.Framework.Core.Common.Specification;
 using System;
 
 namespace EMS.Domain.Specification.Church

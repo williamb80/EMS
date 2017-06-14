@@ -1,23 +1,25 @@
-﻿using EMS.Application.Registration.Interface;
-using EMS.Domain.Entity;
-using EMS.Domain.Operation.Registration;
+﻿using EMS.Domain.Entity;
+using EMS.Domain.Service.Registration;
+using EMS.Framework.Core.Context;
 using EMS.Framework.Core.Common.App;
 using EMS.Framework.Core.Common.Validation;
 using EMS.Framework.Core.DependencyInjection;
-using System.Transactions;
+using EMS.Domain.Repository;
 
 namespace EMS.Application.Registration
 {
-    public class UserAppService : BaseEntityAppService<User, IUserService>, IUserAppService
+    public class UserAppService : BaseEntityAppService<User, IUserRepository>, IUserAppService
     {
         public override ValidationResult Save(User entity)
         {
-            using (var ts = new TransactionScope())
+            using (var uow = ContainerFactory.Get<IUnityOfWork>())
             {
-                ValidationResult.Add(ContainerFactory.Get<IUserService>().Save(entity));
+                uow.BeginTransaction();
+
+                ValidationResult.Add(ContainerFactory.Get<IUserCRUDService>().Save(entity));
 
                 if (ValidationResult.IsValid)
-                    ts.Complete();
+                    uow.Commit();
             }
 
             return ValidationResult;
@@ -25,12 +27,14 @@ namespace EMS.Application.Registration
 
         public override ValidationResult Delete(User entity)
         {
-            using (var ts = new TransactionScope())
+            using (var uow = ContainerFactory.Get<IUnityOfWork>())
             {
-                ValidationResult.Add(ContainerFactory.Get<IUserService>().Delete(entity));
+                uow.BeginTransaction();
+
+                ValidationResult.Add(ContainerFactory.Get<IUserCRUDService>().Delete(entity));
 
                 if (ValidationResult.IsValid)
-                    ts.Complete();
+                    uow.Commit();
             }
 
             return ValidationResult;

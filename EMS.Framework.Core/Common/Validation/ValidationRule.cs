@@ -1,27 +1,22 @@
-﻿using EMS.Framework.Core.Common.Specification.Interface;
-using EMS.Framework.Core.Common.Validation.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using EMS.Framework.Core.Common.Specification;
+using EMS.Framework.Core.Common.Validation;
 
 namespace EMS.Framework.Core.Common.Validation
 {
     public class ValidationRule<TEntity> : IValidationRule<TEntity>
     {
-        private readonly ISpecification<TEntity> _specificationRule;
+        private readonly ISpecification<TEntity> _specification;
         public string ErrorMessage { get; private set; }
 
-        public ValidationRule(ISpecification<TEntity> specificationRule, string errorMessage)
+        public ValidationRule(ISpecification<TEntity> specification, string errorMessage)
         {
-            _specificationRule = specificationRule;
+            _specification = specification;
             ErrorMessage = errorMessage;
         }
 
         public bool Valid(TEntity entity)
         {
-            return _specificationRule.IsSatisfiedBy(entity);
+            return _specification.IsSatisfiedBy(entity);
         }
     }
 }

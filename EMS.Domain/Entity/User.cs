@@ -1,12 +1,12 @@
-﻿using EMS.Domain.ValidationService.Registration;
-using EMS.Framework.Core.Common;
+﻿using EMS.Framework.Core.Common;
+using EMS.Framework.Core.Common.Enum;
 using EMS.Framework.Core.Common.Validation;
 
 namespace EMS.Domain.Entity
 {
-    public class User : BaseEntity, ISelfValidation
+    public class User : IEntity, ISelfValidation
     {
-        public override long Id { get; set; }
+        public long Id { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
 
@@ -15,10 +15,18 @@ namespace EMS.Domain.Entity
             get; private set;
         }
 
-        public bool IsValid()
+        public bool IsValid(OperationMode operation)
         {
-            var result = new UserValidationService();
-            ValidationResult = result.Valid(this);
+            //if (operation == OperationMode.Save)
+            //{
+            //    var result = new ChurchSaveValidationService();
+            //    ValidationResult = result.Valid(this);
+            //}
+            //else
+            //{
+            //    var result = new ChurchDeleteValidationService();
+            //    ValidationResult = result.Valid(this);
+            //}
 
             return ValidationResult.IsValid;
         }

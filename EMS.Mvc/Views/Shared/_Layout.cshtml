@@ -53,9 +53,12 @@
 
 
     <script type="text/javascript">
-        function ConfigureButtonsToOpenModal(pButton, pathLoad) {
-            //var loadingString = "@*@Html.Raw(EMS.Framework.Resource.ButtonsResource.Loading)*@";
 
+        $(document).ajaxError(function () {
+            alert("Erro contate o administrador!");
+        });
+
+        function ConfigureButtonsToOpenModal(pButton, pathLoad) {
 
             if (pathLoad != null && pathLoad != "" && pathLoad != undefined)
                 $("#popupContent").load(pathLoad + pButton.data("value"), function () {

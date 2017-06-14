@@ -1,11 +1,12 @@
 ﻿using EMS.Framework.Core.Common;
+using EMS.Framework.Core.Common.Enum;
 using EMS.Framework.Core.Common.Validation;
 
 namespace EMS.Domain.Entity
 {
-    public class Address : BaseEntity, ISelfValidation
+    public class Address : IEntity, ISelfValidation
     {
-        public override long Id { get; set; }
+        public long Id { get; set; }
         public string Street { get; set; }
         public string Number { get; set; }
         public string City { get; set; }
@@ -17,10 +18,18 @@ namespace EMS.Domain.Entity
             get; private set;
         }
 
-        public bool IsValid()
+        public bool IsValid(OperationMode operation)
         {
-            //var result = new ();
-            //ValidationResult = result.Valid(this);
+            //if (operation == OperationMode.Save)
+            //{
+            //    var result = new ();
+            //    ValidationResult = result.Valid(this);
+            //}
+            //else
+            //{
+            //    var result = new ();
+            //    ValidationResult = result.Valid(this);
+            //}
 
             return ValidationResult.IsValid;
         }

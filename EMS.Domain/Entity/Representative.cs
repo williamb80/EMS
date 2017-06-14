@@ -1,13 +1,14 @@
 ﻿using EMS.Framework.Core.Common;
+using EMS.Framework.Core.Common.Enum;
 using EMS.Framework.Core.Common.Validation;
 using System;
 
 namespace EMS.Domain.Entity
 {
     [Serializable]
-    public class Representative : BaseEntity, ISelfValidation
+    public class Representative : IEntity, ISelfValidation
     {
-        public override long Id { get; set; }
+        public long Id { get; set; }
         public string Name { get; set; }
         public DateTime BirthDate { get; set; }
         public string FirstPhoneNumber { get; set; }
@@ -22,10 +23,18 @@ namespace EMS.Domain.Entity
             get; private set;
         }
 
-        public bool IsValid()
+        public bool IsValid(OperationMode operation)
         {
-            //var result = new ();
-            //ValidationResult = result.Valid(this);
+            //if (operation == OperationMode.Save)
+            //{
+            //    var result = new ChurchSaveValidationService();
+            //    ValidationResult = result.Valid(this);
+            //}
+            //else
+            //{
+            //    var result = new ChurchDeleteValidationService();
+            //    ValidationResult = result.Valid(this);
+            //}
 
             return ValidationResult.IsValid;
         }

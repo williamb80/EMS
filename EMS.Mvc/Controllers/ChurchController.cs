@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
-using EMS.Application.Model.Interface;
+using EMS.Application.Registration;
 using EMS.Domain.Entity;
-using EMS.Framework.Core.Common.Validation;
 using EMS.Framework.Core.DependencyInjection;
 using EMS.Mvc.ViewModels.Registration;
 using System.Collections.Generic;
@@ -42,54 +41,46 @@ namespace EMS.Mvc.Model.Controllers
                 return PartialView(church);
             }
 
-            return View(church);            
-        }
-
-        //GET: Church/Detail/5        
-        public ActionResult Detail(long? id)
-        {
-            if (id == decimal.Zero || id == null)
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-
-            var church = Mapper.Map<Church, ChurchViewModel>(ContainerFactory.Get<IChurchAppService>().GetById(id));
-
-            if (church == null)
-                return new HttpNotFoundResult();
-
-            if (Request.IsAjaxRequest())
-            {
-                return PartialView(church);
-            }
-
             return View(church);
         }
 
+        // GET: Church/Search/?parameter=search
+        public ActionResult Search(string parameter)
+        {
+            if (string.IsNullOrEmpty(parameter))
+                return RedirectToAction("Index");
+
+            var filtered = ContainerFactory.Get<IChurchAppService>().ObtainBySearch(parameter.ToUpper()).ToList();
+
+            ViewBag.Search = parameter;
+            var churches = Mapper.Map<IEnumerable<Church>, IEnumerable<ChurchViewModel>>(filtered);
+
+            return View("Index", churches);
+        }
         //GET: Church/Create  
         public ViewResult Create()
         {
-            var church = new ChurchViewModel();
-            return View("Edit", church);
+            return View("Edit", new ChurchViewModel());
         }
 
         //POST: Church/Edit
         [HttpPost]
-        public ActionResult Create(ChurchViewModel model)
+        public ActionResult Save(ChurchViewModel model)
         {
             if (ModelState.IsValid)
             {
-                var returnCreate = new ValidationResult();
                 var modelDomain = Mapper.Map<ChurchViewModel, Church>(model);
-                returnCreate = ContainerFactory.Get<IChurchAppService>().Save(modelDomain);
+                var validationResult = ContainerFactory.Get<IChurchAppService>().Save(modelDomain);
 
-                if (returnCreate.IsValid)
+                if (validationResult.IsValid)
                 {
                     return RedirectToAction("Index");
                 }
                 else
                 {
-                    foreach (var error in returnCreate.Errors)
+                    foreach (var error in validationResult.Errors)
                     {
-                        ModelState.AddModelError("", error.Message);
+                        ModelState.AddModelError("", error);
                     }
                 }
 
@@ -97,65 +88,35 @@ namespace EMS.Mvc.Model.Controllers
             return View(model);
         }
 
-        //POST: Church/Edit
-        [HttpPost]
-        public ActionResult Edit(ChurchViewModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                var returnValidation = new ValidationResult();
-                var modelDomain = Mapper.Map<ChurchViewModel, Church>(model);
-                returnValidation = ContainerFactory.Get<IChurchAppService>().Save(modelDomain);
-
-                if (returnValidation.IsValid)
-                {
-                    return RedirectToAction("Index");
-                }
-                else
-                {
-                    foreach (var error in returnValidation.Errors)
-                    {
-                        ModelState.AddModelError("", error.Message);
-                    }
-                }
-
-            }
-            return View(model);
-        }
-
-
-        //GET: Church/Delete/5        
-        public ViewResult Delete(long id)
-        {
-            var church = ContainerFactory.Get<IChurchAppService>().GetById(id);
-            return View(church);
-        }
 
         //POST: Church/Delete
         [HttpPost]
-        public ActionResult Delete(Church model)
+        public ActionResult Delete(int id)
         {
-            if (ModelState.IsValid)
+            if (id == default(int))
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+            var domain = ContainerFactory.Get<IChurchAppService>().GetById(id);
+
+            if (domain == null)
+                return new HttpNotFoundResult();
+
+            var validationResult = ContainerFactory.Get<IChurchAppService>().Delete(domain);
+            var vm = Mapper.Map<Church, ChurchViewModel>(domain);
+
+            if (validationResult.IsValid)
             {
-                var returnValidation = new ValidationResult();
-                returnValidation = ContainerFactory.Get<IChurchAppService>().Delete(model);
-
-                if (returnValidation.IsValid)
-                {
-                    return RedirectToAction("Index");
-                }
-                else
-                {
-                    foreach (var error in returnValidation.Errors)
-                    {
-                        ModelState.AddModelError("", error.Message);
-                    }
-                }
-
+                //ViewBag.Message = EnumHelper.GetEnumDescription(SuccessNotification.Message);
+                vm = new ChurchViewModel();
+                return PartialView("Edit", vm);
             }
-            return View(model);
+            else
+            {
+                validationResult.Errors.ToList().ForEach(x => ModelState.AddModelError(string.Empty, x));
+            }
+
+            return PartialView("Edit", vm);
         }
-
-
     }
+
 }

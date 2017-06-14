@@ -56,6 +56,10 @@
       <Project>{c35b6333-e414-4865-b91e-c39a3f12bc0f}</Project>
       <Name>EMS.Application</Name>
     </ProjectReference>
+    <ProjectReference Include="..\EMS.Data.Context\EMS.Data.Context.csproj">
+      <Project>{aae19f58-eab5-477a-b503-2810263082b5}</Project>
+      <Name>EMS.Data.Context</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EMS.Domain\EMS.Domain.csproj">
       <Project>{d9f3123c-d630-430e-a9aa-3f9fe5ca6f86}</Project>
       <Name>EMS.Domain</Name>

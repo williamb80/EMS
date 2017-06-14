@@ -42,16 +42,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Registration\ChurchAppService.cs" />
-    <Compile Include="Registration\Interface\IChurchAppService.cs" />
-    <Compile Include="Registration\Interface\IRepresentativeAppService.cs" />
+    <Compile Include="Registration\IChurchAppService.cs" />
+    <Compile Include="Registration\IRepresentativeAppService.cs" />
     <Compile Include="Registration\RepresentativeAppService.cs" />
     <Compile Include="Registration\UserAppService.cs" />
-    <Compile Include="Registration\Interface\IUserAppService.cs" />
+    <Compile Include="Registration\IUserAppService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Process\Interface\" />
-    <Folder Include="Report\Interface\" />
+    <Folder Include="Process\" />
+    <Folder Include="Report\" />
     <Folder Include="Settings\" />
   </ItemGroup>
   <ItemGroup>

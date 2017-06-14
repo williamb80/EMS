@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EMS.Framework.Core.Common
 {
-    public abstract class BaseEntity
+    public interface IEntity
     {
-        public abstract Int64 Id { get; set; }
+        Int64 Id { get; set; }
     }
 }

@@ -1,23 +1,31 @@
-﻿using EMS.Application.Model.Interface;
-using EMS.Domain.Entity;
-using EMS.Domain.Operation.Registration;
+﻿using EMS.Domain.Entity;
+using EMS.Domain.Service.Registration;
+using EMS.Domain.Repository;
 using EMS.Framework.Core.Common.App;
 using EMS.Framework.Core.Common.Validation;
 using EMS.Framework.Core.DependencyInjection;
-using System.Transactions;
+using System.Collections.Generic;
+using EMS.Framework.Core.Context;
 
-namespace EMS.Application.Model
+namespace EMS.Application.Registration
 {
-    public class ChurchAppService : BaseEntityAppService<Church, IChurchService>, IChurchAppService
+    public class ChurchAppService : BaseEntityAppService<Church, IChurchRepository>, IChurchAppService
     {
+        public IEnumerable<Church> ObtainBySearch(string parameterUpper)
+        {
+            return ContainerFactory.Get<IChurchRepository>().ObtainBySearch(parameterUpper);
+        }
+
         public override ValidationResult Save(Church entity)
         {
-            using (var ts = new TransactionScope())
+            using (var uow = ContainerFactory.Get<IUnityOfWork>())
             {
-                ValidationResult.Add(ContainerFactory.Get<IChurchService>().Save(entity));
+                uow.BeginTransaction();
 
-                if(ValidationResult.IsValid)
-                    ts.Complete();
+                ValidationResult.Add(ContainerFactory.Get<IChurchCRUDService>().Save(entity));
+
+                if (ValidationResult.IsValid)
+                    uow.Commit();
             }
 
             return ValidationResult;
@@ -25,12 +33,14 @@ namespace EMS.Application.Model
 
         public override ValidationResult Delete(Church entity)
         {
-            using (var ts = new TransactionScope())
+            using (var uow = ContainerFactory.Get<IUnityOfWork>())
             {
-                ValidationResult.Add(ContainerFactory.Get<IChurchService>().Delete(entity));
+                uow.BeginTransaction();
+
+                ValidationResult.Add(ContainerFactory.Get<IChurchCRUDService>().Delete(entity));
 
                 if (ValidationResult.IsValid)
-                    ts.Complete();
+                    uow.Commit();
             }
 
             return ValidationResult;

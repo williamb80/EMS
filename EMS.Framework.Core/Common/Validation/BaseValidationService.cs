@@ -1,9 +1,6 @@
-﻿using EMS.Framework.Core.Common.Validation.Interface;
+﻿using EMS.Framework.Core.Common.Validation;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EMS.Framework.Core.Common.Validation
 {
@@ -41,7 +38,7 @@ namespace EMS.Framework.Core.Common.Validation
             {
                 var rule = _validationsRules[key];
                 if (!rule.Valid(entity))
-                    result.Add(new ValidationError(rule.ErrorMessage));
+                    result.Add(rule.ErrorMessage);
             }
             return result;
         }

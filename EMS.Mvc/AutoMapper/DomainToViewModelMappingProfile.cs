@@ -10,10 +10,10 @@ namespace EMS.Mvc.AutoMapper
         protected override void Configure()
         {
             //Mapper.CreateMap<UserVM, User>();
-            Mapper.CreateMap<ChurchViewModel, Church>();
-            Mapper.CreateMap<AddressViewModel, Address>();
-            Mapper.CreateMap<BranchViewModel, Branch>();
-            Mapper.CreateMap<RepresentativeViewModel, Representative>();
+            Mapper.CreateMap<Church, ChurchViewModel>();
+            Mapper.CreateMap<Address, AddressViewModel>();
+            Mapper.CreateMap<Branch, BranchViewModel>();
+            Mapper.CreateMap<Representative, RepresentativeViewModel>();
             Mapper.CreateMap<IEnumerable<Representative>, IEnumerable<RepresentativeViewModel>>();
         }
     }

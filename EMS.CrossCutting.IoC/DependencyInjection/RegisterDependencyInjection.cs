@@ -1,13 +1,10 @@
-﻿using EMS.Application.Model;
-using EMS.Application.Model.Interface;
-using EMS.Application.Registration;
-using EMS.Application.Registration.Interface;
-using EMS.Data.Repository.Mapping.Common;
+﻿using EMS.Application.Registration;
 using EMS.Data.Repository.Repository;
 using EMS.Domain.Repository;
-using EMS.Domain.Operation.Registration;
+using EMS.Domain.Service.Registration;
 using EMS.Framework.Core.DependencyInjection;
-using EMS.Framework.Core.DependencyInjection.Interface;
+using EMS.Framework.Core.Context;
+using EMS.Data.Context;
 
 namespace EMS.CrossCutting.DependencyInjection
 {
@@ -15,6 +12,9 @@ namespace EMS.CrossCutting.DependencyInjection
     {        
         public override void ConfigureBinds()
         {
+
+            ContainerFactory.Bind<IDbContext, EMSContext>();
+
             #region Application
 
             ContainerFactory.Bind<IUserAppService, UserAppService>();
@@ -24,14 +24,13 @@ namespace EMS.CrossCutting.DependencyInjection
             #endregion
 
             #region Service
-            ContainerFactory.Bind<IUserService, UserService>();
-            ContainerFactory.Bind<IChurchService, ChurchService>();
-            ContainerFactory.Bind<IRepresentativeService, RepresentativeService>();
+            ContainerFactory.Bind<IUserCRUDService, UserCRUDService>();
+            ContainerFactory.Bind<IChurchCRUDService, ChurchCRUDService>();
+            ContainerFactory.Bind<IRepresentativeCRUDService, RepresentativeCRUDService>();
             #endregion
 
             #region Repository
 
-            ContainerFactory.Bind<IMappings, Mappings>();
             ContainerFactory.Bind<IUserRepository, UserRepository>();
             ContainerFactory.Bind<IChurchRepository, ChurchRepository>();
             ContainerFactory.Bind<IRepresentativeRepository, RepresentativeRepository>();

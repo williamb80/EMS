@@ -1,51 +1,41 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EMS.Framework.Core.Common.Validation
 {
     public class ValidationResult
     {
-
-        private readonly List<ValidationError> _erros;
-        private string Message { get; set; }
+        private readonly List<string> _erros;
         public bool IsValid { get { return !_erros.Any(); } }
-        public IEnumerable<ValidationError> Errors { get { return _erros; } }
+        public IEnumerable<string> Errors { get { return _erros; } }
 
         public ValidationResult()
         {
-            _erros = new List<ValidationError>();
+            _erros = new List<string>();
         }
 
         public ValidationResult Add(string errorMessage)
         {
-            _erros.Add(new ValidationError(errorMessage));
-            return this;
-        }
-
-        public ValidationResult Add(ValidationError error)
-        {
-            _erros.Add(error);
+            _erros.Add(errorMessage);
             return this;
         }
 
         public ValidationResult Add(params ValidationResult[] validationResults)
         {
-            if (validationResults == null) return this;
+            if (validationResults == null)
+                return this;
 
-            foreach (var result in validationResults.Where(r => r != null))
+            foreach (var result in validationResults.Where(validationResult => validationResult != null))
                 _erros.AddRange(result.Errors);
 
             return this;
         }
 
-        //public ValidationResult Remove(ValidationError error)
-        //{
-        //    if (_erros.Contains(error))
-        //        _erros.Remove(error);
-        //    return this;
-        //}
+        public ValidationResult Remove(string error)
+        {
+            if (_erros.Contains(error))
+                _erros.Remove(error);
+            return this;
+        }
     }
 }

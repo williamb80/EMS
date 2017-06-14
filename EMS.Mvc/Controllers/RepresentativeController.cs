@@ -1,12 +1,9 @@
 ﻿using AutoMapper;
-using EMS.Application.Registration.Interface;
+using EMS.Application.Registration;
 using EMS.Domain.Entity;
 using EMS.Framework.Core.DependencyInjection;
 using EMS.Mvc.ViewModels.Registration;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace EMS.Mvc.Controllers
